@@ -1,5 +1,6 @@
 import sqlite3
 
+# conn =sqlite3.connect('testingFile.db')
 conn =sqlite3.connect('montrealConfirmedCasesHistory.db')
 curr =conn.cursor();
 
