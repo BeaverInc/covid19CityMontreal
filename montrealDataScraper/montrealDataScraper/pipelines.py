@@ -15,8 +15,8 @@ class MontrealdatascraperPipeline(object):
 
 
     def create_connection(self):
-        # self.conn = sqlite3.connect('testingFile.db')
-        self.conn= sqlite3.connect('montrealConfirmedCasesHistory.db')
+        # self.conn = sqlite3.connect('testingFile_v2.db')
+        self.conn= sqlite3.connect('montrealConfirmedCasesHistory_v2.db')
         self.curr= self.conn.cursor()
 
     def process_item(self, item, spider):
@@ -24,16 +24,10 @@ class MontrealdatascraperPipeline(object):
         return item
 
     def store_db(self,item):
-        self.curr.execute("""insert into DATA values (?,?,?)""",(
+        self.curr.execute("""insert into DATA values (null,?,?,?,?)""",(
             item['boroughName'],
             item['confirmedCase'],
+            item['date'],
             item['time']
         ))
         self.conn.commit()
-
-    def create_table(self):
-        self.curr.execute("""create table DATA(
-        boroughName text, 
-        confirmedCase int, 
-        time TIME
-        )""")

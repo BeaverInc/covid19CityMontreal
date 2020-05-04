@@ -11,4 +11,5 @@ class Borough(scrapy.Item):
     # define the fields for your item here like:
     boroughName = scrapy.Field()
     confirmedCase = scrapy.Field()
+    date = scrapy.Field()
     time = scrapy.Field()

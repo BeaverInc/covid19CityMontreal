@@ -3,7 +3,8 @@ from ..items import Borough
 from .listReader import list_reader
 
 import datetime
-now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+date_now = datetime.datetime.now().strftime("%Y-%m-%d")
+time_now = datetime.datetime.now().strftime("%H:%M:%S")
 
 
 class confirmedCaseSpider(scrapy.Spider):
@@ -24,15 +25,24 @@ class confirmedCaseSpider(scrapy.Spider):
         for boroughName in borough_list:
             # print(boroughName)
             boroughCol = response.xpath("//tr[contains(., $val)]", val=boroughName)
+            # print(boroughCol.extract())
             borough = boroughCol.xpath('td/text()').extract()
             # print(borough)
 
             _borough['boroughName'] = boroughName
+            # print(borough)
+            # print(borough[1])
             try:
-                borough[1]= borough[1].replace(' ','')
-                borough[1]= borough[1].replace('<', '')
-                # print(borough[1])
-                caseNum = int(borough[1])
+                #some of the col in santemontrea has a dfferent css style so the name of the borough is missing from the line, in this situation the order of the reading need to be shifted by 1
+                if(boroughName in borough[0]):
+                    pNum = 1
+                else:
+                    pNum = 0
+
+                borough[pNum] = borough[pNum].replace(' ', '')
+                borough[pNum] = borough[pNum].replace('<', '')
+                borough[pNum] = borough[pNum].replace(',', '')
+                caseNum = int(borough[pNum])
 
             except ValueError:
                 try:
@@ -41,10 +51,12 @@ class confirmedCaseSpider(scrapy.Spider):
                     caseNum = int(borough_expect)
                 except:
                     caseNum = -1
+                    print("Unresolved Error fetched to database")
 
             _borough['confirmedCase'] = caseNum
 
-            _borough['time'] = now
+            _borough['date'] = date_now
+            _borough['time'] = time_now
             # print("end of borough")
             yield _borough
 
