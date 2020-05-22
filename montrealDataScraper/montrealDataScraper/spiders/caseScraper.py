@@ -1,6 +1,8 @@
 import scrapy
+import winsound
 from ..items import Borough
 from .listReader import list_reader
+from montrealDataScraper.montrealDataScraper.errorRecorder import error_recorder
 
 import datetime
 date_now = datetime.datetime.now().strftime("%Y-%m-%d")
@@ -51,16 +53,14 @@ class confirmedCaseSpider(scrapy.Spider):
                     caseNum = int(borough_expect)
                 except:
                     caseNum = -1
-                    print("Unresolved Error fetched to database")
-
+                    winsound.Beep(440, 1000) # warn the user that an error has when scraping data
+                    error = error_recorder()
+                    error.error("Unresolved Error fetched to database in borough "+str(boroughName))
             _borough['confirmedCase'] = caseNum
 
             _borough['date'] = date_now
             _borough['time'] = time_now
             # print("end of borough")
             yield _borough
-
-
-
 
 
