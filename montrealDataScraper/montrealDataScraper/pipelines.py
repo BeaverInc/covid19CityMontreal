@@ -15,8 +15,8 @@ class MontrealdatascraperPipeline(object):
 
 
     def create_connection(self):
-        # self.conn = sqlite3.connect('testingFile_v2.db')
-        self.conn= sqlite3.connect('montrealConfirmedCasesHistory_v2.db')
+        self.conn = sqlite3.connect('testingFile_v2.db')
+        # self.conn= sqlite3.connect('montrealConfirmedCasesHistory_v2.db')
         self.curr= self.conn.cursor()
 
     def process_item(self, item, spider):

@@ -1,12 +1,15 @@
 import matplotlib.pyplot as plt
 from montrealDataScraper.montrealDataScraper.dbHandler import db_handler
 from montrealDataScraper.montrealDataScraper.spiders.listReader import list_reader
+import os
+
 
 
 class graph_handler:
     def __init__(self, _debug_message_switch=False):
         self.database_handler = db_handler(_debug_message_switch)
         self.DEBUG_SWITCH = _debug_message_switch
+        self.graph_folder_path = os.path.abspath(__file__ + "/../../")
 
 
 
@@ -17,11 +20,14 @@ class graph_handler:
         for i in range(1, size+1):
             days.append(i)
 
+        plt.figure(figsize=(5.5, 4.4))
         plt.plot(days, case_list)
         plt.xlabel('Days')
         plt.ylabel('Cases')
         plt.title("Confirmed cases in "+_boroughname)
-        plt.savefig("graph/cases/"+_boroughname+'_c.png')
+
+        file_name = _boroughname+'_c.png'
+        plt.savefig(os.path.join(self.graph_folder_path +"\\webpage\\graph\\cases\\", file_name))
         plt.clf()
 
     def draw_borough_daily_double_time(self, _boroughname):
@@ -30,11 +36,13 @@ class graph_handler:
         days = []
         for i in range(1, size+1):
             days.append(i)
+        plt.figure(figsize=(5.5,4.4))
         plt.plot(days, double_time_list)
         plt.xlabel('Last '+str(size)+' Days')
         plt.ylabel('Doubling Time (Days)')
         plt.title("Doubling Time in  "+_boroughname)
-        plt.savefig("graph/double time/"+_boroughname+'_d.png')
+        file_name = _boroughname+'_d.png'
+        plt.savefig(os.path.join(self.graph_folder_path +"\\webpage\\graph\\double time\\", file_name))
         plt.clf()
 
     def draw_all(self):
