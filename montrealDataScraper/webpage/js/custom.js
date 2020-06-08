@@ -11,8 +11,6 @@ $(function(){
         var borough_name_string = opt;
         ele.innerText = "" + opt;
         document.querySelector(".custom-select").appendChild(ele);
-//        $("#area_c").append('<img id="'+opt+'_case'+'" src=montrealDataScraper/webpage/graph/cases/'+opt+'_c.png />');
-//        $("#area_d").append('<img id="'+opt+'_double'+'" src=montrealDataScraper/webpage/graph/double_time/'+opt+'_d.png />');
     }
 
 });
@@ -22,7 +20,9 @@ $('select').on('change', function() {
     var name = this.value;
     $("#area_c").empty()
     $("#area_d").empty()
-    $("#area_c").append('<img id="'+name+'_case'+'" src=montrealDataScraper/webpage/graph/cases/'+name+'_c.png />');
-    $("#area_d").append('<img id="'+name+'_double'+'" src=montrealDataScraper/webpage/graph/double_time/'+name+'_d.png />');
+    $("#map").empty()
+    $("#area_c").append('<img id="'+name+'_case'+'" src=montrealDataScraper/webpage/graph/cases/'+name+'_c.png>');
+    $("#area_d").append('<img id="'+name+'_double'+'" src=montrealDataScraper/webpage/graph/double_time/'+name+'_d.png>');
+    $("#map").append('<img id="'+name+'" src=montrealDataScraper/webpage/graph/map/'+name+'.png class ="mx-auto d-block">');
     alert( case_address );
 });
