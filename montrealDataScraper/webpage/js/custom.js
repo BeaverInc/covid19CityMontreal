@@ -23,6 +23,6 @@ $('select').on('change', function() {
     $("#map").empty()
     $("#area_c").append('<img id="'+name+'_case'+'" src=montrealDataScraper/webpage/graph/cases/'+name+'_c.png>');
     $("#area_d").append('<img id="'+name+'_double'+'" src=montrealDataScraper/webpage/graph/double_time/'+name+'_d.png>');
-    $("#map").append('<img id="'+name+'" src=montrealDataScraper/webpage/graph/map/'+name+'.PNG class ="mx-auto d-block">');
+    $("#map").append('<img id="'+name+'" src=montrealDataScraper/webpage/graph/map/'+name+'.png class ="mx-auto d-block">');
     alert( case_address );
 });
