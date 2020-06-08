@@ -42,7 +42,7 @@ class graph_handler:
         plt.ylabel('Doubling Time (Days)')
         plt.title("Doubling Time in  "+_boroughname)
         file_name = _boroughname+'_d.png'
-        plt.savefig(os.path.join(self.graph_folder_path +"\\webpage\\graph\\double time\\", file_name))
+        plt.savefig(os.path.join(self.graph_folder_path +"\\webpage\\graph\\double_time\\", file_name))
         plt.clf()
 
     def draw_all(self):

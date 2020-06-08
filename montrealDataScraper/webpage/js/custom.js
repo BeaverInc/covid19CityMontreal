@@ -1,0 +1,28 @@
+var borough = ["Ahuntsic–Cartierville", "Anjou", "Baie-D'Urfé", "Beaconsfield", "Côte-des-Neiges–Notre-Dame-de-Grâce", "Côte-Saint-Luc", "Dollard-des-Ormeaux", "Dorval", "Hampstead", "Kirkland", "Lachine", "LaSalle", "L'Île-Bizard–Sainte-Geneviève", "Mercier–Hochelaga-Maisonneuve", "Montréal-Est", "Montréal-Nord", "Montréal-Ouest", "Mont-Royal", "Outremont", "Pierrefonds–Roxboro", "Plateau-Mont-Royal", "Pointe-Claire", "Rivière-des-Prairies–Pointe-aux-Trembles", "Rosemont–La Petite Patrie", "Sainte-Anne-de-Bellevue", "Saint-Laurent", "Saint-Léonard", "Senneville", "Sud-Ouest", "Verdun", "Ville-Marie", "Villeray–Saint-Michel–Parc-Extension", "Westmount"]
+
+
+$(function(){
+    var select = document.getElementById("borough_select");
+    for(var i = 0; i < borough.length; i++) {
+        var opt = borough[i];
+        var ele = document.createElement('option');
+        ele.value = opt
+        ele.classList = "selected";
+        var borough_name_string = opt;
+        ele.innerText = "" + opt;
+        document.querySelector(".custom-select").appendChild(ele);
+//        $("#area_c").append('<img id="'+opt+'_case'+'" src=montrealDataScraper/webpage/graph/cases/'+opt+'_c.png />');
+//        $("#area_d").append('<img id="'+opt+'_double'+'" src=montrealDataScraper/webpage/graph/double_time/'+opt+'_d.png />');
+    }
+
+});
+
+
+$('select').on('change', function() {
+    var name = this.value;
+    $("#area_c").empty()
+    $("#area_d").empty()
+    $("#area_c").append('<img id="'+name+'_case'+'" src=montrealDataScraper/webpage/graph/cases/'+name+'_c.png />');
+    $("#area_d").append('<img id="'+name+'_double'+'" src=montrealDataScraper/webpage/graph/double_time/'+name+'_d.png />');
+    alert( case_address );
+});

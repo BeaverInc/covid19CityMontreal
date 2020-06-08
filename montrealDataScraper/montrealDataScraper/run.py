@@ -8,3 +8,7 @@ process.crawl('confirmedCases')
 process.start()
 
 updater()
+
+# #For debug
+# updater(True)
+

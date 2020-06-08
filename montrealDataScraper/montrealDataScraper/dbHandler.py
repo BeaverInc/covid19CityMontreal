@@ -4,6 +4,7 @@ from montrealDataScraper.montrealDataScraper.errorRecorder import error_recorder
 
 class db_handler:
     def __init__(self, _debug_message_switch=False):
+        # # this is used for debug
         # self.conn = sqlite3.connect('testingFile_v2.db')
         self.conn =sqlite3.connect('montrealConfirmedCasesHistory_v2.db')
         self.curr = self.conn.cursor();
