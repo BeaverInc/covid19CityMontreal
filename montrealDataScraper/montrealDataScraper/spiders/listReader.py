@@ -1,5 +1,4 @@
-import os, sys
-import json
+import os
 
 class list_reader:
     def __init__(self):
@@ -15,9 +14,16 @@ class list_reader:
     def get_list(self):
         return self.list
 
-    def to_json(self):
-        name = {'name': self.list}
+    def update_js_list(self):
+        with open(os.path.join(self.web_path+"\\webpage\\js\\", 'list.js'), 'w', encoding='utf-8') as js_list:
+            code = 'var borough = ['
 
-        with open(os.path.join(self.web_path+"\\webpage\\js\\", 'list.json'), 'w', encoding='utf-8') as outfile:
+            for borough in self.list:
+                line = '"'+borough+'", '
+                code += line
+            code = code[: -2]
+            code += ']'
 
-            json_file = json.dump(name, outfile, ensure_ascii=False)
+            js_list.write(code)
+
+

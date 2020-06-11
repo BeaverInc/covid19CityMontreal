@@ -13,13 +13,15 @@ class confirmedCaseSpider(scrapy.Spider):
 
     name = 'confirmedCases'
     start_urls = [
-        'https://santemontreal.qc.ca/en/public/coronavirus-covid-19/'
+        # 'https://santemontreal.qc.ca/en/public/coronavirus-covid-19/'
+        'https://santemontreal.qc.ca/en/public/coronavirus-covid-19/situation-of-the-coronavirus-covid-19-in-montreal/'
     ]
 
     def parse(self, response):
         # since Sante Montreal is constantly updating in this evolving situation, constant xpath is not reliable. A more human behaviour approach is used: from menus link -> title -> table where data is stored.
         _borough = Borough()
         borough_list = list_reader().get_list()
+        error = error_recorder()
 
         # print(borough_list)
         # print('Debug:')
@@ -27,10 +29,14 @@ class confirmedCaseSpider(scrapy.Spider):
         for boroughName in borough_list:
             # print(boroughName)
             boroughCol = response.xpath("//tr[contains(., $val)]", val=boroughName)
+            if not boroughCol:
+                # print("error on ",boroughName )
+                error.error("Did not find any information on " + str(boroughName))
+                continue
             # print(boroughCol.extract())
             borough = boroughCol.xpath('td/text()').extract()
-            # print(borough)
 
+            # print(boroughName," : ",borough)
             _borough['boroughName'] = boroughName
             # print(borough)
             # print(borough[1])
@@ -54,10 +60,11 @@ class confirmedCaseSpider(scrapy.Spider):
                 except:
                     caseNum = -1
                     winsound.Beep(440, 1000) # warn the user that an error has when scraping data
-                    error = error_recorder()
-                    error.error("Unresolved Error fetched to database in borough "+str(boroughName))
-            _borough['confirmedCase'] = caseNum
 
+                    error.error("Unresolved Error fetched to database in borough "+str(boroughName))
+
+            _borough['confirmedCase'] = caseNum
+            # print(boroughName," : ",caseNum,"\ntime:", date_now , time_now,"\n")
             _borough['date'] = date_now
             _borough['time'] = time_now
             # print("end of borough")

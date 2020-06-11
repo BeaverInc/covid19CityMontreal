@@ -29,14 +29,17 @@
     <div class="row">
         <br>All data is collected from santemontreal.qc.ca<br>
     </div>
+    <div class = "row" id = "update_time">
+            Last updated on
+    </div>
 
   <select class="custom-select scrollable-menu" id="borough_select">
-    <option selected>Select a borough in Montreal...</option>
+    <option class="selected" value="Montreal">Select a borough in Montreal...</option>
   </select>
     <div class="row">
         <div class="col-sm col-md col-lg col-xl-12">
             <div id = "map">
-                <img src="montrealDataScraper/webpage/graph/map/Montreal.png" class ="mx-auto d-block">
+                <img src="montrealDataScraper/webpage/graph/map/Montreal.png" class ="mx-auto d-block img-fluid">
             </div>
         </div>
     </div>
@@ -57,9 +60,6 @@
 
 
 
-
-
-
 </div>
 
 
@@ -71,8 +71,10 @@
 <script src="montrealDataScraper/webpage/css/bootstrap.css" ></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="montrealDataScraper/webpage/js/bootstrap.min.js"></script>
+<script type= "text/javascript" src="montrealDataScraper/webpage/js/list.js"></script>
 <script type= "text/javascript" src="montrealDataScraper/webpage/js/custom.js"></script>
-
+<script type= "text/javascript" src="montrealDataScraper/webpage/js/recorded_time.js"></script>
+<script type= "text/javascript" src="montrealDataScraper/webpage/js/updater.js"></script>
 
 
 </body>
