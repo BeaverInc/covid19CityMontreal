@@ -7,8 +7,9 @@ from montrealDataScraper.montrealDataScraper.add_function.scrapy_runner import s
 
 scrapy_updater()
 updater = updater()
-updater.update_graph()
 updater.update_borough_list()
+updater.update_graph()
+updater.update_daily_report()
 updater.update_recorded_time_on_webside()
 
 

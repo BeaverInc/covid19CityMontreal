@@ -715,3 +715,7 @@ Doubling time in Côte-Saint-Luc is greater than 65 days, not enough data to plo
 Doubling time in Hampstead is greater than 65 days, not enough data to plot a graph occurs on 2020-06-17 15:00:42.152676
 Doubling time in Outremont is greater than 65 days, not enough data to plot a graph occurs on 2020-06-17 15:01:20.905893
 Doubling time in Senneville is greater than 65 days, not enough data to plot a graph occurs on 2020-06-17 15:01:56.380922
+Doubling time in Côte-Saint-Luc is greater than 65 days, not enough data to plot a graph occurs on 2020-06-17 18:00:36.876115
+Doubling time in Hampstead is greater than 65 days, not enough data to plot a graph occurs on 2020-06-17 18:00:47.750737
+Doubling time in Outremont is greater than 65 days, not enough data to plot a graph occurs on 2020-06-17 18:01:23.922806
+Doubling time in Senneville is greater than 65 days, not enough data to plot a graph occurs on 2020-06-17 18:01:56.891692

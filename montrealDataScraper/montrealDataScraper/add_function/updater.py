@@ -35,14 +35,17 @@ class updater:
         web_path = os.path.abspath(__file__ + "/../../../")
         with open(os.path.join(web_path + "\\webpage\\js\\", 'current_data.js'), 'w', encoding='utf-8') as report_js:
 
-            # example:
-            # var Ahuntsic–Cartierville = { cumulativeCases : 2277 , cumulativeCasesDate : 2020-06-16 , newCases : 0 , newCasesDate : 2020-06-16 };
-            code = ''
+            code = 'var '
             for line in report:
                 # TODO: fix this
-                line_in_js = "var "+str(line[1])+" = { cumulativeCases : "+str(line[2])+" , cumulativeCasesDate : "+str(line[3])+" , newCases : "+str(line[4])+" , newCasesDate : "+str(line[5])+" };\n"
+                name_in_js = str(line[1])
+                for char in [' ',"'",'-','–']:
+                    if char in name_in_js:
+                        name_in_js = name_in_js.replace(char, "_")
+                line_in_js = name_in_js+" = { cumulativeCases : "+str(line[2])+" , cumulativeCasesDate : '"+str(line[3])+"' , newCases : "+str(line[4])+" , newCasesDate : '"+str(line[5])+"' },\n"
                 code += line_in_js
-
+            code = code[: -2]
+            code += " ;"
             report_js.write(code)
 
 #
