@@ -8,3 +8,15 @@
   max-height: 200px;
   overflow-x: hidden;
 }
+
+.bg-new{
+    background-color: red
+}
+
+.bg-double{
+    background-color: yellow
+}
+
+.bg-cumulative{
+    background-color: coral
+}

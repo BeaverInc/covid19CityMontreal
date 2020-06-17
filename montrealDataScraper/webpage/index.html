@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <title> Montreal, Covid 19 data in each borough </title>
+    <link  href="css/bootstrap.css" rel="stylesheet">
+    <link  href="css/custom.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-xl-3">
+            <h3>Home</h3>
+        </div>
+        <div class="col-12 col-xl-3">
+            <a href="case.html"> <h3>Cumulative Cases</h3> </a>
+        </div>
+        <div class="col-12 col-xl-3">
+            <a href="new.html"> <h3>New Case Everyday</h3> </a>
+        </div>
+        <div class="col-12 col-xl-3">
+            <a href="double.html"> <h3>Doubling Time</h3> </a>
+        </div>
+    </div>
+    <div class="row">
+        <br>All data is collected from santemontreal.qc.ca<br>
+    </div>
+    <div class = "row" id = "update_time">
+            Last updated on
+    </div>
+
+  <select class="custom-select scrollable-menu" id="borough_select">
+    <option class="selected" value="Montreal">Select a borough in Montreal...</option>
+  </select>
+    <div class="row">
+        <div class="col-sm col-md col-lg col-xl-12">
+            <div id = "map">
+                <img src="graph/map/Montreal.png" class ="mx-auto d-block img-fluid">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        Latest Data:
+    </div>
+    <div class="row" id="cumulative_case">
+    </div>
+    <div class="row" id="new_case">
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4 bg-cumulative">
+            <h2>Cumulative Cases</h2>
+            <div id = "area_c">
+            </div>
+
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4 bg-new">
+             <h2>New Case Everyday</h2>
+            <div id = "area_n">
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-4 bg-double">
+             <h2>Doubling Time</h2>
+            <div id = "area_d">
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="css/bootstrap.css" ></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type= "text/javascript" src="js/list.js"></script>
+<script type= "text/javascript" src="js/custom.js"></script>
+<script type= "text/javascript" src="js/recorded_time.js"></script>
+<script type= "text/javascript" src="js/updater.js"></script>
+
+
+</body>
+</html>

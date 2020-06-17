@@ -1,8 +1,8 @@
 import scrapy
 import winsound
 from ..items import Borough
-from .listReader import list_reader
-from montrealDataScraper.montrealDataScraper.errorRecorder import error_recorder
+from montrealDataScraper.montrealDataScraper.add_function.listReader import list_reader
+from montrealDataScraper.montrealDataScraper.add_function.errorRecorder import error_recorder
 
 import datetime
 date_now = datetime.datetime.now().strftime("%Y-%m-%d")
