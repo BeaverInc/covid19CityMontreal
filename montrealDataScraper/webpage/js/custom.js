@@ -1,5 +1,7 @@
 var placeholder = "placeholder_text"
 
+
+
 $(function(){
 
     var select = document.getElementById("borough_select");
@@ -24,6 +26,11 @@ $('select').on('change', function() {
     if (/\s/.test(name)){
         name_url = name_url.replace(/\s/g, "%20");
     }
+
+    var name_in_js = name;
+    name_in_js = name_in_js.replace(/\s/g, "_").replace(/'/g, "_").replace(/-/g, "_").replace(/–/g, "_");
+    var report_data = window[name_in_js];
+
     $("#area_c").empty();
     $("#area_d").empty();
     $("#area_n").empty();
@@ -34,8 +41,8 @@ $('select').on('change', function() {
         $("#area_c").append('<img id="'+name+'_case'+'"src="graph/cases/'+name_url+'_c.png" class ="mx-auto d-block img-fluid"> ');
         $("#area_d").append('<img id="'+name+'_double'+'"src="graph/double_time/'+name_url+'_d.png" class ="mx-auto d-block img-fluid">');
         $("#area_n").append('<img id="'+name+'_new'+'"src="graph/new/'+name_url+'_n.png" class ="mx-auto d-block img-fluid">');
-        $("#cumulative_case").append("On "+placeholder+" , cumulative cases in "+name+" : "+ placeholder);
-        $("#new_case").append("On "+placeholder+" , new cases in "+name+" : "+ placeholder);
+        $("#cumulative_case").append("On "+report_data.cumulativeCasesDate+" , cumulative cases in "+name+" : "+"<b>"+report_data.cumulativeCases+"</b>");
+        $("#new_case").append("On "+report_data.newCasesDate+" , new cases in "+name+" : "+"<b>"+report_data.newCases+"</b>" );
 
     }
     $("#map").append('<img id="'+name+'"src="graph/map/'+name_url+'.png" class ="mx-auto d-block img-fluid">');
