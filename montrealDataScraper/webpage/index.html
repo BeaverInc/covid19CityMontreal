@@ -13,73 +13,119 @@
 <body>
 
 <div class="container">
-    <div class="row">
-        <div class="col-12 col-xl-3">
-            <h3>Home</h3>
-        </div>
-        <div class="col-12 col-xl-3 ">
-            <a href="case.html"> <h3>Cumulative Cases</h3> </a>
-        </div>
-        <div class="col-12 col-xl-3 " >
-            <a href="new.html"> <h3>New Case Everyday</h3> </a>
-        </div>
-        <div class="col-12 col-xl-3 ">
-            <a href="double.html"> <h3>Doubling Time</h3> </a>
-        </div>
-    </div>
-    <div class="row col-12">
-        All data is collected from&nbsp
-        <a href="https://santemontreal.qc.ca/en/public/coronavirus-covid-19/situation-of-the-coronavirus-covid-19-in-montreal/#c42834">santemontreal.qc.ca</a>
-    </div>
-    <div class = "row col-12" id = "update_time">
-            Last updated on
-    </div>
-
-  <select class="custom-select scrollable-menu" id="borough_select">
-    <option class="selected" value="Montreal">Select a borough in Montreal...</option>
-  </select>
-    <div class="row">
-        <div class="col-sm col-md col-lg col-xl-12">
-            <div id = "map">
-                <img src="graph/map/Montreal.png" class ="mx-auto d-block img-fluid">
-            </div>
+    <div class="row float-right">
+        <div class="btn-group btn-group-toggle" id="translation" data-toggle="buttons">
+            <label class="btn btn-info active">
+                <input type="radio" value="english" autocomplete="off" checked> English
+            </label>
+            <label class="btn btn-info">
+                <input type="radio" value="chinese" autocomplete="off" > 中文
+            </label>
         </div>
     </div>
 
-
-
-
-    <div class="row col-12">
-        <div class = "bg-latest col-12">
-            <div class="row col-12 ">
-                Latest Data:
-            </div>
-            <div class="row col-12" id="cumulative_case">
-            </div>
-            <div class="row col-12" id="new_case">
-            </div>
+    <div class=" navbar navbar-expand-lg navbar-light" >
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menus" aria-controls="menus" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse show" id="menus">
+            <ul class="navbar-nav btn-group btn-group-toggle btn-block" id = "radio_btn" data-toggle="buttons">
+                <div class="btn btn-head col-12 col-xl-3 active">
+                    <input type="radio" id ="home-radio" value = "home" autocomplete="off" checked> Home
+                </div>
+                <div class=" btn btn-head col-12 col-xl-3 bg-cumulative">
+                    <input type="radio" id ="case-radio" value ="case" autocomplete="off" > Cumulative Cases
+                </div>
+                <div class=" btn btn-head col-12 col-xl-3 bg-new">
+                    <input type="radio" id ="new-radio" value ="new" autocomplete="off" > New Case Everyday
+                </div>
+                <div class=" btn btn-head col-12 col-xl-3 bg-double">
+                    <input type="radio" id ="double-radio" value ="double" autocomplete="off" > Doubling Time
+                </div>
+            </ul>
         </div>
-
-        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4 bg-cumulative">
-            <h2>Cumulative Cases</h2>
-            <div id = "area_c">
-            </div>
-
-        </div>
-        <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4 bg-new">
-             <h2>New Case Everyday</h2>
-            <div id = "area_n">
-            </div>
-        </div>
-        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-4 bg-double">
-             <h2>Doubling Time</h2>
-            <div id = "area_d">
-            </div>
-        </div>
-
-
 
     </div>
+
+    <div class="row col-12" >
+        <text id = date_disclaimer>All data is collected from:</text>
+        <a href="https://santemontreal.qc.ca/en/public/coronavirus-covid-19/situation-of-the-coronavirus-covid-19-in-montreal/#c42834">&nbspsantemontreal.qc.ca</a>
+    </div>
+    <div class = "row col-12">
+        <div id = "before_text_update_time">
+            Last updated on&nbsp
+        </div>
+        <div id = "update_time">
+
+        </div>
+    </div>
+
+    <div class = card id = "home">
+        <select class="custom-select scrollable-menu" id="borough_select">
+            <option class="selected" id = "select_borough" value="Montreal">Select a borough in Montreal...</option>
+        </select>
+        <div class="row">
+            <div class="col-sm col-md col-lg col-xl-12">
+                <div id = "map">
+                    <img src="graph/map/Montreal.png" class ="mx-auto d-block img-fluid">
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="row col-12 align-self-center">
+            <div class = "bg-latest col-12">
+                <div class="row col-12">
+                    <div id = "latest_data">
+                        Latest Data:
+                    </div>
+                </div>
+                <div class="row col-12" id="cumulative_case">
+
+                </div>
+                <div class="row col-12" id="new_case">
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4 bg-cumulative">
+                <h2 id = "graph_title_case">Cumulative Cases</h2>
+                <div id = "area_c">
+                </div>
+
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4 bg-new">
+                <h2 id = "graph_title_new">New Case Everyday</h2>
+                <div id = "area_n">
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-4 bg-double">
+                <h2 id = "graph_title_double">Doubling Time</h2>
+                <div id = "area_d">
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+    <div class="card" id = "new" >
+        <div class="row col-12 bg-new" id="n_area">
+
+        </div>
+    </div>
+    <div class="card" id = "double">
+        <div class="row bg-double col-12" id="d_area">
+
+        </div>
+    </div>
+    <div class="card" id = "case">
+        <div class="row bg-double col-12" id="c_area">
+
+        </div>
+    </div>
+
 
 </div>
 
@@ -95,8 +141,9 @@
 <script type= "text/javascript" src="js/list.js"></script>
 <script type= "text/javascript" src="js/custom.js"></script>
 <script type= "text/javascript" src="js/recorded_time.js"></script>
-<script type= "text/javascript" src="js/updater.js"></script>
 <script type= "text/javascript" src="js/current_data.js"></script>
+<script type= "text/javascript" src="js/translator.js"></script>
+
 
 </body>
 </html>

@@ -23,5 +23,42 @@
 
 .bg-latest{
     background-color: #9fcdff;
+}
 
+.btn-head {
+    color: black;
+    font-size: 24px;
+    background-color: #5C97D5;
+    border-color: black;
+}
+
+.btn-head:hover {
+    color: black;
+    background-color: #8BB0D7;
+    border-color: black;
+}
+
+.btn-head:focus, .btn-head.focus {
+    color: black;
+    background-color: #3B6490;
+    border-color: black;
+    box-shadow: 0 0 0 0.2rem #64717E;
+}
+
+.btn-head.disabled, .btn-head:disabled {
+    color: black;
+    background-color: #959BA1;
+    border-color: black;
+}
+
+.btn-head:not(:disabled):not(.disabled):active, .btn-head:not(:disabled):not(.disabled).active,
+.show > .btn-head.dropdown-toggle {
+    color: white;
+    background-color: #3B6490;
+    border-color:black;
+}
+
+.btn-info:not(:disabled):not(.disabled):active:focus, .btn-info:not(:disabled):not(.disabled).active:focus,
+.show > .btn-info.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem #64717E;
 }
